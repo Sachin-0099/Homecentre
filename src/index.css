@@ -1,0 +1,8 @@
+@import "tailwindcss";
+/* Global font family */
+* {
+    font-family: "FrutigerStd-semibold", "FrutigerStd", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+  
+  
+  
