@@ -34,7 +34,7 @@ const ImageGrid2 = () => {
 </div>
 <div className="w-full">
   <img
-    src="Images/9.png"
+    src="Images/11.png"
     alt=""
     className="w-full h-[90vh] object-fit"
   />
