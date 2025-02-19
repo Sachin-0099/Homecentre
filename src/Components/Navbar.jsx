@@ -93,16 +93,18 @@ const Navbar = () => {
 <div className="flex flex-col md:flex-row items-center justify-between px-4 py-2 bg-white text-black border-b space-y-2 md:space-y-0">
   <div className="flex items-center space-x-12 w-full md:w-auto justify-center md:justify-start">
     <div className="text-4xl font-semibold flex items-center space-x-6 rounded-lg">
-      <img src="logo.jpeg" alt="Slasa" className="h-20 w-20 md:h-24 md:w-24 rounded-full" />
+      <img src="Images/logo.jpeg" alt="Slasa" className="h-20 w-20 md:h-24 md:w-24 rounded-full" />
     </div>
 
     {/* Menu Items */}
     <div className="text-xl md:text-2xl flex flex-wrap md:flex-nowrap space-x-6 md:space-x-12 justify-center">
-      <div className="font-semibold px-5 md:px-6 cursor-pointer">Home</div>
-      <div className="font-bold px-5 md:px-6 cursor-pointer">Shop</div>
-      <div className="font-bold px-5 md:px-6 cursor-pointer">Services</div>
-      <div className="font-bold px-5 md:px-6 cursor-pointer">About Us</div>
-      <div className="font-bold px-5 md:px-6 cursor-pointer">Contact</div>
+      <div className="font-semibold px-5 md:px-6 cursor-pointer">Gardening</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Wood</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Arcylic</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Neon</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Toys</div>
+   
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Customize</div>
     </div>
   </div>
 
