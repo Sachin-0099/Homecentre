@@ -1,30 +1,32 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
+import React from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+
 
 const Hero = () => {
   const images = [
-    "/Images/img1.jpeg",
-    "/Images/img2.jpeg",
-    "/Images/img3.jpeg",
-    "/Images/img4.jpeg",
-    "/Images/img5.jpeg",
-    "/Images/B4.jpeg",
-    "/Images/B5.jpeg",
-    "/Images/B6.jpeg",
-    "/Images/B7.jpeg",
-    "/Images/Bathroom.jpeg",
-    "/Images/Bedroom.jpeg",
-    "/Images/Blueprint.jpeg",
-    "/Images/Blueprint2.jpeg",
-    "/Images/kitchen.jpeg",
-    "/Images/Layout.jpeg",
-    "/Images/dinning.jpeg",
-    "/Images/Construction.jpeg",
-    "/Images/C2.jpeg",
-    "/Images/c3.jpeg",
-    "/Images/C4.jpeg",
-    "/Images/C5.jpeg",
+    '/Images/img1.jpeg',
+    '/Images/img2.jpeg',
+    '/Images/img3.jpeg',
+    '/Images/img4.jpeg',
+    '/Images/img5.jpeg',
+    '/Images/B4.jpeg',
+    '/Images/B5.jpeg',
+    '/Images/B6.jpeg',
+    '/Images/B7.jpeg',
+    '/Images/Bathroom.jpeg',
+    '/Images/Bedroom.jpeg',
+    '/Images/Blueprint.jpeg',
+    '/Images/Blueprint2.jpeg',
+    '/Images/kitchen.jpeg',
+    '/Images/Layout.jpeg',
+    '/Images/dinning.jpeg',
+    '/Images/Construction.jpeg',
+    '/Images/C2.jpeg',
+    '/Images/c3.jpeg',
+    '/Images/C4.jpeg',
+    '/Images/C5.jpeg',
   ];
 
   const settings = {
@@ -39,26 +41,34 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <img
-              src={image}
-              alt={`Slide ${index + 1}`}
+            <img 
+              src={image} 
+              alt={`Slide ${index + 1}`} 
               className="w-full h-[600px] object-cover"
             />
           </div>
         ))}
       </Slider>
-      <img src="Images/1.png" alt="" className="w-full max-w-7xl mx-auto" />
-      <div>
-        <img
-          src="Images/2.png"
-          alt=""
-          className="w-[90vw] h-[200px] object-cover mx-auto translate-x-[80px] space-x-2 pt-20"
-        />
-      </div>
+      <div className="px-4 md:px-8 lg:px-16 xl:px-32">
+  <img 
+    src="Images/1.png" 
+    alt=""  
+    className="w-full h-[200px] object-cover mx-auto"
+  />
+</div>
+<div>
+      
+<img 
+    src="Images/2.png" 
+    alt=""  
+    className="w-[90vh] h-[200px] object-cover mx-auto translate-x-[80px] space-x-2 pt-20"
+  />
+</div>
+
     </div>
   );
 };

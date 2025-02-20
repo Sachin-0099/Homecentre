@@ -1,3 +1,5 @@
+import React from "react";
+
 const images = [
   { imageUrl: "/Images/8.png", link: "#" },
   { imageUrl: "/Images/9.png", link: "#" },
@@ -8,27 +10,36 @@ const images = [
 const ImageGrid2 = () => {
   return (
     <>
-      <div className="grid grid-cols-1 min-[470px]:grid-cols-2 max-w-2xl gap-4 place-items-center mx-auto">
-        {images.map((image, index) => (
-          <a key={index} href={image.link} className="w-52 sm:w-72 2xl:w-80">
-            <img
-              src={image.imageUrl}
-              alt={`Image ${index + 1}`}
-              className="object-cover rounded-lg"
-            />
-          </a>
-        ))}
-      </div>
-      <div className="w-full">
-        <img src="Images/4.png" alt="" className="w-full max-w-7xl mx-auto" />
-      </div>
-      <div className="w-full">
-        <img
-          src="Images/11.png"
-          alt=""
-          className="w-full h-[90vh] object-fit"
-        />
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-40 md:grid-cols-2 lg:grid-cols-2">
+      {images.map((image, index) => (
+        <a
+          key={index}
+          href={image.link}
+          className="flex justify-center items-center w-full"
+        >
+          <img
+            src={image.imageUrl}
+            alt={`Image ${index + 1}`}
+            className="w-full h-auto object-cover rounded-lg"
+          />
+        </a>
+      ))}
+    </div>
+    <div className="w-full" >
+  <img
+    src="Images/4.png"
+    alt=""
+    className="w-full h-auto object-cover -ml-32"
+  />
+</div>
+<div className="w-full">
+  <img
+    src="Images/11.png"
+    alt=""
+    className="w-full h-[90vh] object-fit"
+  />
+</div>
+
     </>
   );
 };

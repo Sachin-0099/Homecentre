@@ -1,3 +1,5 @@
+import React from 'react';
+
 const products = [
   { 
     imageUrl: "/Images/machine.jpeg", 
@@ -39,7 +41,7 @@ const Products = () => {
     <div className="p-8">
       {/* Title Section */}
       <div className="flex justify-between items-center mb-10 ">
-        <h1 className="py-6 text-4xl lg:text-5xl">Price drop on select products | <a href="#" className=" text-blue-400">View All</a> </h1>
+        <h1 className="text-6xl py-6">Price drop on select products | <span className='text-6xl'><a href="#" className=" text-blue-400 text-6xl">View All</a></span> </h1>
       
       </div>
 
@@ -81,7 +83,7 @@ const Products = () => {
   <img
     src="Images/Bagthebestdeal.jpeg"
     alt=""
-    className="w-full max-w-7xl mx-auto"
+    className="w-full  object-fit"
   />
   </div>
     </>

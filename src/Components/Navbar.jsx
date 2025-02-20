@@ -1,18 +1,24 @@
-import { useState, useEffect } from "react";
-import "remixicon/fonts/remixicon.css";
+import React, { useState, useEffect } from "react";
+import 'remixicon/fonts/remixicon.css';
+
 
 const navItems = [
   { icon: "🚚", label: "Free Shipping" },
   { icon: "🖥️", label: "Click & Collect" },
-  { icon: "📅", label: "Warranty" },
+  { icon: "📅", label: "Warranty" }
 ];
 
 const rightNavItems = [
-  "B2B & Design Services",
-  "Deliver to area",
-  "Store Locator",
-  "Help",
-  "Sell With Us",
+
+  { icon: "", label: "B2B & Design Services", },
+  
+  { icon: "📍", label: "Deliver to area" },
+  { label:  "Store Locator" },
+  { label: "Help" },
+  { label: "Sell With Us"},
+
+
+ 
 ];
 
 const countries = [
@@ -35,8 +41,7 @@ const Navbar = () => {
       if (!document.getElementById("google-translate-script")) {
         const script = document.createElement("script");
         script.id = "google-translate-script";
-        script.src =
-          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
         document.body.appendChild(script);
       }
     };
@@ -44,11 +49,7 @@ const Navbar = () => {
     window.googleTranslateElementInit = () => {
       if (!document.getElementById("google_translate_element").innerHTML) {
         new window.google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            layout:
-              window.google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-          },
+          { pageLanguage: "en", layout: window.google.translate.TranslateElement.InlineLayout.HORIZONTAL },
           "google_translate_element"
         );
       }
@@ -65,151 +66,124 @@ const Navbar = () => {
   return (
     <>
       {/* Top Navbar */}
-      <header className="flex flex-col lg:flex-row lg:justify-between lg:px-5 bg-zinc-900 text-stone-100 text-sm md:text-base">
-        <ul className="flex items-center flex-wrap space-x-4 pt-2 lg:pt-0 justify-center">
-          {navItems.map((item) => (
-            <li key={item.label} className="flex items-center space-x-1">
-              <span role="img" aria-label={item.label}>
-                {item.icon}
-              </span>
+      <div className="flex justify-between items-center px-20 py-2 bg-black text-white text-sm sm:text-xl md:text-[12px] flex-wrap space-y-2 md:space-y-0 font-normal">
+        <div className="flex items-center space-x-4 md:space-x-10 flex-wrap justify-center">
+          {navItems.map((item, index) => (
+            <div key={index} className="flex items-center space-x-1">
+              <span role="img" aria-label={item.label}>{item.icon}</span>
               <span>{item.label}</span>
-            </li>
+            </div>
           ))}
-        </ul>
-        <ul className="flex flex-col items-center min-[550px]:flex-row min-[550px]:justify-center py-2 gap-1 min-[550px]:gap-3">
-          {rightNavItems.map((item) => (
-            <li key={item}>{item}</li>
+        </div>
+        <div className="flex justify-between items-center px-4 py-2  bg-black text-white text-sm sm:text-xl md:text-[12px] flex-wrap space-y-2 md:space-y-0 font-normal">
+          {rightNavItems.map((item, index) => (
+            typeof item === "string" ? (
+              <div key={index} className="cursor-pointer">{item}</div>
+            ) : (
+              <div key={index} className="flex items-center space-x-3">
+                <span role="img" aria-label={item.label}>{item.icon}</span>
+                <span>{item.label}</span>
+              </div>
+            )
           ))}
-        </ul>
-      </header>
+        </div>
+      </div>
 
       {/* Main Navbar */}
-      <div className="flex flex-col items-center justify-between text-black border-b">
-        <div className="flex items-center w-full justify-around py-2">
-          <img
-            src="Images/logo.jpeg"
-            alt="Slasa"
-            className="h-20 w-20 md:h-24 md:w-24 rounded-full"
-          />
+<div className="flex flex-col md:flex-row items-center justify-between px-4 py-2 bg-white text-black border-b space-y-2 md:space-y-0">
+  <div className="flex items-center space-x-12 w-full md:w-auto justify-center md:justify-start">
+    <div className="text-4xl font-semibold flex items-center space-x-6 rounded-lg">
+      <img src="Images/logo.jpeg" alt="Slasa" className="h-20 w-20 md:h-24 md:w-24 rounded-full" />
+    </div>
 
-          <div className="relative">
-            <button
-              className="md:hidden text-xl"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? (
-                <i className="ri-close-large-fill"></i>
-              ) : (
-                <i className="ri-menu-3-line"></i>
-              )}
-            </button>
-            {/* Menu Items */}
-            <nav
-              className={`flex flex-col absolute bg-stone-100 top-8 right-0 py-3 px-6 z-10 font-semibold rounded-md space-y-4 md:space-y-0 md:space-x-6 ${
-                isMobileMenuOpen ? "flex" : "hidden"
-              } md:flex md:flex-row md:relative md:top-0 md:bg-transparent`}
-            >
-              <a href="/gardening" className="cursor-pointer">
-                Gardening
-              </a>
-              <a href="/wood" className="cursor-pointer">
-                Wood
-              </a>
-              <a href="/acrylic" className="cursor-pointer">
-                Arcylic
-              </a>
-              <a href="/neon" className="cursor-pointer">
-                Neon
-              </a>
-              <a href="/toys" className="cursor-pointer">
-                Toys
-              </a>
-              <a href="/customize" className="cursor-pointer">
-                Customize
-              </a>
-            </nav>
-          </div>
+    {/* Menu Items */}
+    <div className="text-xl md:text-2xl flex flex-wrap md:flex-nowrap space-x-6 md:space-x-12 justify-center">
+      <div className="font-semibold px-5 md:px-6 cursor-pointer">Gardening</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Wood</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Arcylic</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Neon</div>
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Toys</div>
+   
+      <div className="font-bold px-5 md:px-6 cursor-pointer">Customize</div>
+    </div>
+  </div>
+
+  {/* Right Section (Search, Account, Cart, Language, and Country) */}
+  <div className="flex items-center space-x-6 md:space-x-12 w-full md:w-auto mt-6 md:mt-0 justify-center md:justify-end">
+    {/* Search Bar */}
+    <div className="relative flex items-center bg-gray-100 py-2 px-4 md:py-3 md:px-8 rounded-md w-full md:w-auto">
+      <i className="ri-search-line absolute left-8 text-gray-800 text-xl md:text-2xl"></i>
+      <input
+        type="text"
+        placeholder="What are you looking for?"
+        className="bg-transparent focus:outline-none text-xl md:text-2xl pl-16 w-full text-gray-800"
+      />
+    </div>
+
+    {/* Account Options */}
+    <div className="flex items-center space-x-6 md:space-x-12 font-bold text-2xl md:text-3xl">
+      <i className="ri-user-line text-2xl md:text-3xl"></i>
+      <span>Sign Up</span>
+      <span>or</span>
+      <span>Sign In</span>
+    </div>
+
+    {/* Cart & Favorites */}
+    <div className="flex items-center space-x-6 md:space-x-12 text-3xl md:text-5xl">
+      <i className="ri-heart-line"></i>
+      <i className="ri-shopping-bag-line"></i>
+
+      {/* Language & Country Dropdown */}
+      <div className="relative">
+        <div 
+          className="flex items-center space-x-2 px-4 py-3 bg-gray-100 rounded-lg cursor-pointer"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          <span className="text-2xl">{selectedCountry.flag}</span>
+          <i className="ri-global-line"></i>
+          <i className="ri-arrow-down-s-line"></i>
         </div>
 
-        {/* Right Section (Search, Account, Cart, Language, and Country) */}
-        <div className="flex flex-col gap-3 py-2 sm:flex-row items-center border-t border-gray-500 w-full justify-center sm:px-2 sm:py-4 text-sm">
-          {/* Account Options */}
-          <div className="flex items-center font-semibold justify-between w-full px-6 sm:px-2">
-            <div className="flex gap-2">
-              <i className="ri-heart-line text-lg"></i>
-              <i className="ri-shopping-bag-line text-lg"></i>
-              <div className="">
-                <i className="ri-user-line text-lg"></i>
-                <span>Account</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              {/* Language & Country Dropdown */}
-              <div className="relative">
-                <div
-                  className="flex items-center space-x-2 bg-gray-100 rounded cursor-pointer px-2 text-lg"
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-                  <span>{selectedCountry.flag}</span>
-                  <i className="ri-global-line"></i>
-                  <i className="ri-arrow-down-s-line"></i>
-                </div>
-
-                {/* Dropdown Menu */}
-                <div
-                  className={`absolute right-0 mt-2 w-72 bg-white shadow-lg rounded-xl p-4 z-50 border border-gray-200 transition-all duration-300 ease-in-out transform ${
-                    isDropdownOpen
-                      ? "scale-100 opacity-100"
-                      : "scale-95 opacity-0 pointer-events-none"
-                  }`}
-                >
-                  {/* Google Translate */}
-                  <div className="font-semibold text-gray-700 mb-2">
-                    Select Language
-                  </div>
-                  <div className="flex justify-center items-center">
-                    <div className="p-4 bg-gray-100 rounded-lg shadow-md border border-gray-300 flex justify-center items-center">
-                      <div
-                        id="google_translate_element"
-                        className="text-gray-700"
-                      ></div>
-                    </div>
-                  </div>
-
-                  {/* Country Selection */}
-                  <div className="font-semibold text-gray-700 mt-2">
-                    Select Country
-                  </div>
-                  <ul className="space-y-2">
-                    {countries.map((country, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-md cursor-pointer"
-                        onClick={() => {
-                          setSelectedCountry(country);
-                          setIsDropdownOpen(false);
-                        }}
-                      >
-                        <span>{country.flag}</span>
-                        <span>{country.name}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+        {/* Dropdown Menu */}
+        <div 
+          className={`absolute right-0 mt-2 w-96 bg-white shadow-lg rounded-xl p-4 z-50 border border-gray-200 transition-all duration-300 ease-in-out transform ${isDropdownOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"}`}
+        >
+          {/* Google Translate */}
+          <div className="text-2xl font-semibold text-gray-700 mb-2">Select Language</div>
+          <div className="flex justify-center items-center">
+            <div className="p-4 bg-gray-100 rounded-lg shadow-md border border-gray-300 flex justify-center items-center">
+              <div id="google_translate_element" className="text-gray-700"></div>
             </div>
           </div>
-          {/* Search Bar */}
-          <div className="relative w-4/5 border rounded overflow-hidden max-w-md">
-            <i className="ri-search-line absolute left-0 top-1/2 -translate-y-1/2 text-lg ml-1.5"></i>
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="py-1 pl-7 bg-gray-100 w-full"
-            />
+
+          {/* Country Selection */}
+          <div className="mt-4">
+            <div className="text-2xl font-semibold text-gray-700 mb-2">Select Country</div>
+            <ul className="space-y-2">
+              {countries.map((country, index) => (
+                <li 
+                  key={index} 
+                  className="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-md cursor-pointer"
+                  onClick={() => {
+                    setSelectedCountry(country);
+                    setIsDropdownOpen(false);
+                  }}
+                >
+                  <span className="text-2xl">{country.flag}</span>
+                  <span className="text-lg">{country.name}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  {/* Hamburger Menu for Mobile */}
+ 
+</div>
+
     </>
   );
 };

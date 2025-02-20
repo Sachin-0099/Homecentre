@@ -1,3 +1,5 @@
+import React from 'react';
+
 const images = [
   { imageUrl: "/Images/8.png", link: "#" },
   { imageUrl: "/Images/9.png", link: "#" },
@@ -15,60 +17,67 @@ const images1 = [
 const ServiceGrid = () => {
   return (
     <>
-      <div className="space-y-10 my-12 max-w-7xl mx-auto">
-        {/* First Grid */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          {images1.map((image, index) => (
-            <a
-              key={index}
-              href={image.link}
-              className="w-52 sm:w-72 2xl:w-80"
-            >
-              <img
-                src={image.imageUrl}
-                alt={`Image ${index + 5}`}
-                className="h-auto object-cover rounded-lg"
-              />
-            </a>
-          ))}
-        </div>
-        {/* Second Grid */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          {images.map((image, index) => (
-            <a
-              key={index}
-              href={image.link}
-              className="w-52 sm:w-72 2xl:w-80"
-            >
-              <img
-                src={image.imageUrl}
-                alt={`Image ${index + 1}`}
-                className="h-auto object-cover rounded-lg"
-              />
-            </a>
-          ))}
-        </div>
+    <div className="px-48 mt-30 space-y-10">
+       {/* First Grid */}
+    <div className="grid grid-cols-4 gap-8 mt-30 mb-20 ">
+        {images1.map((image, index) => (
+          <a
+            key={index}
+            href={image.link}
+            className="flex justify-center items-center w-full p-4"
+          >
+            <img
+              src={image.imageUrl}
+              alt={`Image ${index + 5}`} 
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </a>
+        ))}
       </div>
-      <div className="w-full">
-        <img
-          src="Images/3.png"
-          alt=""
-          className="w-full max-w-7xl mx-auto"
-        />
-      </div>
-      <div className="w-full">
-        <img
-          src="Images/10.png"
-          alt=""
-          className="w-full h-[90vh] object-fit"
-        />
-      </div>
-      <div className="flex flex-wrap items-center justify-center gap-4 my-12">
+
+
+     
+            {/* Second Grid */}
+      <div className="grid grid-cols-4 gap-8 mb-20">
         {images.map((image, index) => (
           <a
             key={index}
             href={image.link}
-            className="w-52 sm:w-72 2xl:w-80"
+            className="flex justify-center items-center w-full"
+          >
+            <img
+              src={image.imageUrl}
+              alt={`Image ${index + 1}`}
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </a>
+        ))}
+      </div>
+
+
+  
+      
+    </div>
+        <div className="w-full" >
+        <img
+          src="Images/3.png"
+          alt=""
+          className="w-full h-auto object-cover "
+        />
+      </div>
+      <div className="w-full">
+  <img
+    src="Images/10.png"
+    alt=""
+    className="w-full h-[90vh] object-fit"
+  />
+</div>
+<div className="grid grid-cols-4 gap-8 px-40 mt-40">
+        {images.map((image, index) => (
+          <a
+            key={index}
+            href={image.link}
+            className="flex justify-center items-center w-full"
           >
             <img
               src={image.imageUrl}
@@ -79,13 +88,15 @@ const ServiceGrid = () => {
         ))}
       </div>
       <div className="w-full mt-20">
-        <img
-          src="Images/11.png"
-          alt=""
-          className="w-full h-[90vh] object-fit"
-        />
-      </div>
-    </>
+  <img
+    src="Images/11.png"
+    alt=""
+    className="w-full h-[90vh] object-fit"
+  />
+</div>
+
+   
+      </>
   );
 };
 
